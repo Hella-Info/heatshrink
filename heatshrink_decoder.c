@@ -33,8 +33,7 @@ static const char *state_names[] = {
 };
 #else
 #define LOG(...) /* no-op */
-//#define ASSERT(X) /* no-op */
-#define ASSERT(X) assert(X)
+#define ASSERT(X) /* no-op */
 #endif
 
 typedef struct {
@@ -279,7 +278,8 @@ static HSD_state st_yield_backref(heatshrink_decoder *hsd,
         ASSERT(neg_offset < mask + 1);
         ASSERT(count <= 1 << BACKREF_COUNT_BITS(hsd));
 
-        for (int i=0; i<count; i++) {
+        int i;
+        for (i=0; i<count; i++) {
             uint8_t c = buf[(hsd->head_index - neg_offset) & mask];
             push_byte(hsd, oi, c);
             buf[hsd->head_index & mask] = c;
@@ -307,8 +307,9 @@ static uint32_t get_bits(heatshrink_decoder *hsd, uint8_t count) {
     if (hsd->input_size == 0) {
         if (hsd->bit_index < (1 << (count - 1))) return -1;
     }
-
-    for (int i = 0; i < count; i++) {
+    
+    int i;
+    for (i = 0; i < count; i++) {
         if (hsd->bit_index == 0x00) {
             if (hsd->input_size == 0) {
                 LOG("  -- out of bits, suspending w/ accumulator of %u (0x%02x)\n",
