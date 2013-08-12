@@ -6,6 +6,7 @@
 #include <string.h>
 #include <err.h>
 #include <fcntl.h>
+#include <getopt.h>
 
 #include "heatshrink_encoder.h"
 #include "heatshrink_decoder.h"
