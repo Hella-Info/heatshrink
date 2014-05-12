@@ -13,7 +13,7 @@
 #else
     /* Required parameters for static configuration */
     #ifndef HEATSHRINK_STATIC_INPUT_BUFFER_SIZE
-        #define HEATSHRINK_STATIC_INPUT_BUFFER_SIZE 32
+        #define HEATSHRINK_STATIC_INPUT_BUFFER_SIZE 256
     #endif
 
     #ifndef HEATSHRINK_STATIC_WINDOW_BITS

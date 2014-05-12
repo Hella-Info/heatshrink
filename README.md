@@ -19,9 +19,9 @@ A data compression/decompression library for embedded/real-time systems.
 
 There is a standalone command-line program, `heatshrink`, but the
 encoder and decoder can also be used as libraries, independent of each
-other. To do so, copy heatshrink.h, `heatshrink_config.h`, and either
-`heatshrink_encoder.c` or `heatshrink_decoder.c` (and their respective
-header) into your project.
+other. To do so, copy `heatshrink_common.h`, `heatshrink_config.h`, and
+either `heatshrink_encoder.c` or `heatshrink_decoder.c` (and their
+respective header) into your project.
 
 Dynamic allocation is used by default, but in an embedded context, you
 probably want to statically allocate the encoder/decoder. Set
@@ -40,3 +40,7 @@ documentation.
 
 [blog post]: http://spin.atomicobject.com/2013/03/14/heatshrink-embedded-data-compression/
 [LZSS]: http://en.wikipedia.org/wiki/Lempel-Ziv-Storer-Szymanski
+
+## Build Status
+
+  [![Build Status](https://travis-ci.org/atomicobject/heatshrink.png)](http://travis-ci.org/atomicobject/heatshrink)

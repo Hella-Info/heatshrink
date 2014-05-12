@@ -2,8 +2,11 @@ PROJECT = heatshrink
 #OPTIMIZE = -O0
 #OPTIMIZE = -Os
 OPTIMIZE = -O3
-WARN = -Wall -pedantic #-Werror
+WARN = -Wall -Wextra -pedantic #-Werror
 CFLAGS += -std=c99 -g ${WARN} ${OPTIMIZE}
+CFLAGS += -Wmissing-prototypes
+CFLAGS += -Wstrict-prototypes
+CFLAGS += -Wmissing-declarations
 
 all:
 	@echo "For tests, make test_heatshrink_dynamic (default) or change the"
@@ -15,8 +18,6 @@ ${PROJECT}: heatshrink.c
 heatshrink: heatshrink_encoder.o heatshrink_decoder.o
 test_heatshrink_dynamic: heatshrink_encoder.o heatshrink_decoder.o
 test_heatshrink_static: heatshrink_encoder.o heatshrink_decoder.o
-
-heat.a: heatshrink_encoder.o heatshrink_decoder.o
 
 *.o: Makefile heatshrink_config.h
 
